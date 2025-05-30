@@ -3,13 +3,20 @@
 </div>
 
 
-@if (heroes.length > 0) {
-  <div class="all-heroes-list">
-    @for (hero of heroes; track $index) {
-      <img [routerLink]="['/heroes', hero.id]" [src]="hero.images.sm" alt="{{ hero.name }}">
-    }
-  </div>
-}
+<!--@if (heroes.length > 0) {-->
+<!--  <div class="all-heroes-list">-->
+<!--    @for (hero of heroes; track $index) {-->
+<!--      <img [routerLink]="['/heroes', hero.id]" [src]="hero.images.sm" alt="{{ hero.name }}">-->
+<!--    }-->
+<!--  </div>-->
+<!--}-->
+
+<div class="all-heroes-list">
+  @for (hero of heroes$ | async ; track $index) {
+    <img [routerLink]="['/heroes', hero.id]" [src]="hero.images.sm" alt="{{ hero.name }}">
+  }
+</div>
+
 
 
 <!--<div *ngIf="heroes.length > 0">-->

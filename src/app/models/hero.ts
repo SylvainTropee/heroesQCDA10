@@ -4,4 +4,7 @@ export interface Hero {
   images : {
     sm : string
   }
+  biography : {
+    fullName : string
+  }
 }

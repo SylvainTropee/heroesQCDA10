@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import {JsonPipe, NgIf} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
 import {Hero} from "../../models/hero";
 import {RouterLink} from "@angular/router";
 import {HeroService} from "../../services/hero.service";
 import {HttpClientModule} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-all-heroes',
@@ -12,7 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
     JsonPipe,
     NgIf,
     RouterLink,
-    HttpClientModule
+    HttpClientModule,
+    AsyncPipe
   ],
   providers : [HeroService],
   templateUrl: './all-heroes.component.html',
@@ -21,13 +23,16 @@ import {HttpClientModule} from "@angular/common/http";
 export class AllHeroesComponent {
 
   public heroes : Array<Hero> // hero[]
+  public heroes$! : Observable<Hero[]> // hero[]
 
   constructor(private heroService : HeroService) {
     this.heroes = []
+    this.addHeroes()
   }
 
   addHeroes() {
     this.heroService.findAllHeroes().subscribe(heroes => this.heroes = heroes)
+    this.heroes$ = this.heroService.findAllHeroes()
   }
 }
 
