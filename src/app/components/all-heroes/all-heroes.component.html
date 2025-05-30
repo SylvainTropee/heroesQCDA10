@@ -2,9 +2,15 @@
   <button (click)="addHeroes()">Charger les héros</button>
 </div>
 
-@if(heroes.length > 0){
-  <div>{{ heroes | json}}</div>
+
+@if (heroes.length > 0) {
+  <div class="all-heroes-list">
+    @for (hero of heroes; track $index) {
+      <img [src]="hero.image" alt="{{ hero.name }}">
+    }
+  </div>
 }
+
 
 <!--<div *ngIf="heroes.length > 0">-->
 <!--  {{ heroes | json}}-->

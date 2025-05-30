@@ -4,3 +4,6 @@ button{
 div{
   @apply flex justify-center;
 }
+.all-heroes-list{
+  @apply flex flex-wrap gap-1;
+}

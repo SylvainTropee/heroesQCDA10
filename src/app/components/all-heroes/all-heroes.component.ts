@@ -21,8 +21,8 @@ export class AllHeroesComponent {
   }
 
   addHeroes() {
-    this.heroes.push({name : "Hulk"});
-    this.heroes.push({name : "Wonder Woman"});
-    this.heroes.push({name : "Buffy"});
+    this.heroes.push({name : "Hulk", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/332-hulk.jpg"});
+    this.heroes.push({name : "Wonder Woman", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/720-wonder-woman.jpg"});
+    this.heroes.push({name : "Buffy", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/140-buffy.jpg"});
   }
 }
