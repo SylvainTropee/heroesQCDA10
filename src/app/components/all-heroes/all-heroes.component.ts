@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import {JsonPipe, NgIf} from "@angular/common";
+import {Hero} from "../../models/hero";
+import {RouterLink} from "@angular/router";
+import {HeroService} from "../../services/hero.service";
 
 @Component({
   selector: 'app-all-heroes',
   standalone: true,
   imports: [
     JsonPipe,
-    NgIf
+    NgIf,
+    RouterLink
 
   ],
   templateUrl: './all-heroes.component.html',
@@ -14,15 +18,17 @@ import {JsonPipe, NgIf} from "@angular/common";
 })
 export class AllHeroesComponent {
 
-  public heroes : Array<any> // any[]
+  public heroes : Array<Hero> // hero[]
 
-  constructor() {
+  constructor(private heroService : HeroService) {
     this.heroes = []
   }
 
   addHeroes() {
-    this.heroes.push({name : "Hulk", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/332-hulk.jpg"});
-    this.heroes.push({name : "Wonder Woman", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/720-wonder-woman.jpg"});
-    this.heroes.push({name : "Buffy", image : "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/140-buffy.jpg"});
+    this.heroes = this.heroService.findAllHeroes()
   }
 }
+
+
+
+

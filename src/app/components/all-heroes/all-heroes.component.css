@@ -7,3 +7,6 @@ div{
 .all-heroes-list{
   @apply flex flex-wrap gap-1;
 }
+img{
+   @apply cursor-pointer
+}
