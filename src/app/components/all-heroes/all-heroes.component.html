@@ -6,7 +6,7 @@
 @if (heroes.length > 0) {
   <div class="all-heroes-list">
     @for (hero of heroes; track $index) {
-      <img [routerLink]="['/heroes', hero.id]" [src]="hero.image" alt="{{ hero.name }}">
+      <img [routerLink]="['/heroes', hero.id]" [src]="hero.images.sm" alt="{{ hero.name }}">
     }
   </div>
 }

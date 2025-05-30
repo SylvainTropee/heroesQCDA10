@@ -18,7 +18,7 @@ export class HeroDetailComponent {
   constructor(private route : ActivatedRoute, private heroService: HeroService) {
     this.id = this.route.snapshot.paramMap.get('id')
     if(this.id){
-      this.hero = this.heroService.findHeroById(+this.id)
+      //this.hero = this.heroService.findHeroById(+this.id)
     }
   }
 

@@ -3,6 +3,7 @@ import {JsonPipe, NgIf} from "@angular/common";
 import {Hero} from "../../models/hero";
 import {RouterLink} from "@angular/router";
 import {HeroService} from "../../services/hero.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-all-heroes',
@@ -10,9 +11,10 @@ import {HeroService} from "../../services/hero.service";
   imports: [
     JsonPipe,
     NgIf,
-    RouterLink
-
+    RouterLink,
+    HttpClientModule
   ],
+  providers : [HeroService],
   templateUrl: './all-heroes.component.html',
   styleUrl: './all-heroes.component.css'
 })
@@ -25,7 +27,7 @@ export class AllHeroesComponent {
   }
 
   addHeroes() {
-    this.heroes = this.heroService.findAllHeroes()
+    this.heroService.findAllHeroes().subscribe(heroes => this.heroes = heroes)
   }
 }
 
