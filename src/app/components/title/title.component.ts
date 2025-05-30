@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './title.component.css'
 })
 export class TitleComponent {
+  public title : string;
 
+  constructor() {
+    this.title = "Super Heroes"
+  }
 }
+
+

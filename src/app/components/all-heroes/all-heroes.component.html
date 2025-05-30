@@ -1,1 +1,11 @@
-<p>all-heroes works!</p>
+<div>
+  <button (click)="addHeroes()">Charger les héros</button>
+</div>
+
+@if(heroes.length > 0){
+  <div>{{ heroes | json}}</div>
+}
+
+<!--<div *ngIf="heroes.length > 0">-->
+<!--  {{ heroes | json}}-->
+<!--</div>-->
